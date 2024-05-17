@@ -5,7 +5,8 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://kit.fontawesome.com/50ca4bca32.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="image">
@@ -13,77 +14,78 @@
   </div>
   <nav>
     <h1>Welcome back!</h1>
-    <ul>
-	<l1 class="title">
-	   <i class="fa-solid fa-envelope"></i>
-           &nbsp;Social
-        </l1>
-      <li><a href="https://mail.google.com/mail/u/0/">Gmail</a></li>:w
-
-      <li><a href="https://www.reddit.com/">Reddit</a></li>
-      <li><a href="https://www.reddit.com/r/steamdeck+sbcgaming+miyoomini">r/SBC Gaming</a></li>
-      <li><a href="https://www.twitch.tv/">Twitch</a></li>
-      <li><a href="https://store.steampowered.com/">Steam</a></li>
-      <li><a href="https://discord.com/login">Discord</a></li> 
-    </ul>
-    <ul>
-      <l2 class="title">
-          <i class="fa-solid fa-terminal"></i>
-          &nbsp;Tech
-      </l2>
-      <li><a href="https://github.com/chrisbrasington?tab=repositories">GitHub</a></li>
-      <li><a href="https://www.reddit.com/r/ObsidianMD/">ObsidianMD</a></li>
-      <li><a href="https://devblogs.microsoft.com/dotnet/">.NET</a></li>
-      <li><a href="https://chat.openai.com/">Chat-GPT</a></li>
-      <li><a href="https://www.reddit.com/r/LocalLLaMA/">LocalLLaMA</a></li>
-    </ul>
-    <ul>
-      <l3 class="title">
-          <i class="fa-brands fa-linux"></i>
-          &nbsp;Linux
-      </l3>
-      <li><a href="https://wiki.debian.org/">Debian Wiki</a></li>
-      <li><a href="https://flathub.org/">Flathub</a></li>
-      <li><a href="https://www.protondb.com/">ProtonDB</a></li>
-    </ul>
-    <ul>
-      <l4 class="title">
-          <i class="fa-solid fa-clapperboard"></i>
-          &nbsp;Media
-      </l4>
-      <li><a href="https://app.plex.tv/desktop/#!/">Plex</a></li>
-
-      <li><a href="https://listen.tidal.com/">Tidal</a></li>
-      <li><a href="https://www.last.fm/user/raylinth">Last.FM</a></li>
-      <li><a href="https://fmoviesz.to/">FMovies</a></li>
-      <li><a href="https://www.youtube.com/@TEDEd">TED-Ed</a></li>
-      <li><a href="https://wallhaven.cc/">Wallhaven</a></li>
-      <li><a href="https://www.youtube.com/feed/subscriptions">Youtube Subs</a></li>
-    </ul>        
-    <ul>
-      <l5 class="title">
-          <i class="fa-solid fa-book"></i>
-          &nbsp;Read
-      </l5>
-      <li><a href="https://www.kobo.com/us/en/library/books">Kobo</a></li>
-      <li><a href="https://libgen.is/">Libgen</a></li>
-      <li><a href="https://www.gutenberg.org/">Project Gutenberg</a></li>
-      <li><a href="https://annas-archive.org/">Anna's Archive</a></li>
-      <li><a href="https://arapahoe.overdrive.com/account/loans">Arapahoe Library</a></li>
-      <li><a href="https://denver.overdrive.com/account/loans">Denver Library</a></li>
-    </ul>        
-    <ul>
-      <l6 class="title">
-          <i class="fa-solid fa-file-video"></i>
-          &nbsp;Anime
-      </l6>
-      <li><a href="https://www.crunchyroll.com/">Crunchyroll</a></li>
-      <li><a href="https://mangadex.org/">MangaDex</a></li>
-    </ul>            
+    <div id="menu"></div>
   </nav>
-  <!-- <iframe src="https://chat.openai.com/" frameborder="0"></iframe> -->
-  <nav>
-
-  </nav>
+  <script id="config-data" type="application/json">
+  {
+    "categories": [
+      {
+        "title": "Social",
+        "icon": "fa-solid fa-envelope",
+        "links": [
+          { "name": "Gmail", "url": "https://mail.google.com/mail/u/0/" },
+          { "name": "Reddit", "url": "https://www.reddit.com/" },
+          { "name": "r/SBC Gaming", "url": "https://www.reddit.com/r/steamdeck+sbcgaming+miyoomini" },
+          { "name": "Twitch", "url": "https://www.twitch.tv/" },
+          { "name": "Steam", "url": "https://store.steampowered.com/" },
+          { "name": "Discord", "url": "https://discord.com/login" }
+        ]
+      },
+      {
+        "title": "Tech",
+        "icon": "fa-solid fa-terminal",
+        "links": [
+          { "name": "GitHub", "url": "https://github.com/chrisbrasington?tab=repositories" },
+          { "name": "ObsidianMD", "url": "https://www.reddit.com/r/ObsidianMD/" },
+          { "name": ".NET", "url": "https://devblogs.microsoft.com/dotnet/" },
+          { "name": "Chat-GPT", "url": "https://chat.openai.com/" },
+          { "name": "LocalLLaMA", "url": "https://www.reddit.com/r/LocalLLaMA/" }
+        ]
+      },
+      {
+        "title": "Linux",
+        "icon": "fa-brands fa-linux",
+        "links": [
+          { "name": "Debian Wiki", "url": "https://wiki.debian.org/" },
+          { "name": "Flathub", "url": "https://flathub.org/" },
+          { "name": "ProtonDB", "url": "https://www.protondb.com/" }
+        ]
+      },
+      {
+        "title": "Media",
+        "icon": "fa-solid fa-clapperboard",
+        "links": [
+          { "name": "Plex", "url": "https://app.plex.tv/desktop/#/" },
+          { "name": "Tidal", "url": "https://listen.tidal.com/" },
+          { "name": "Last.FM", "url": "https://www.last.fm/user/raylinth" },
+          { "name": "FMovies", "url": "https://fmoviesz.to/" },
+          { "name": "TED-Ed", "url": "https://www.youtube.com/@TEDEd" },
+          { "name": "Wallhaven", "url": "https://wallhaven.cc/" },
+          { "name": "Youtube Subs", "url": "https://www.youtube.com/feed/subscriptions" }
+        ]
+      },
+      {
+        "title": "Read",
+        "icon": "fa-solid fa-book",
+        "links": [
+          { "name": "Kobo", "url": "https://www.kobo.com/us/en/library/books" },
+          { "name": "Libgen", "url": "https://libgen.is/" },
+          { "name": "Project Gutenberg", "url": "https://www.gutenberg.org/" },
+          { "name": "Anna's Archive", "url": "https://annas-archive.org/" },
+          { "name": "Arapahoe Library", "url": "https://arapahoe.overdrive.com/account/loans" },
+          { "name": "Denver Library", "url": "https://denver.overdrive.com/account/loans" }
+        ]
+      },
+      {
+        "title": "Anime",
+        "icon": "fa-solid fa-file-video",
+        "links": [
+          { "name": "Crunchyroll", "url": "https://www.crunchyroll.com/" },
+          { "name": "MangaDex", "url": "https://mangadex.org/" }
+        ]
+      }
+    ]
+  }
+  </script>
 </body>
 </html>
