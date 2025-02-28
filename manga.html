@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manga Image Viewer</title>
+</head>
+<body>
+    <h1>Enter Manga URL</h1>
+    <input type="text" id="manga-url" placeholder="Enter Manga URL">
+    <button onclick="fetchMangaCovers()">Get Covers</button>
+    <div id="image-container"></div>
+
+    <script>
+        async function fetchMangaCovers() {
+            const mangaUrl = document.getElementById('manga-url').value;
+            const mangaId = mangaUrl.split('/')[4]; // Assuming the manga URL contains the ID at this position
+
+            // Construct the MangaDex API URL
+            const apiUrl = `https://api.mangadex.org/cover?limit=100&manga%5B%5D=${mangaId}&order%5Bvolume%5D=asc`;
+
+            // Use a public CORS proxy service
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+            const fullUrl = proxyUrl + apiUrl;
+
+            try {
+                const response = await fetch(fullUrl, {
+                    headers: {
+                        accept: 'application/json',
+                    },
+                });
+
+                const data = await response.json();
+
+                if (data && data.data) {
+                    const imageContainer = document.getElementById('image-container');
+                    imageContainer.innerHTML = ''; // Clear previous images
+
+                    data.data.forEach(cover => {
+                        const img = document.createElement('img');
+                        img.src = `https://mangadex.org/covers/${cover.relationship.id}/${cover.attributes.fileName}`;
+                        img.alt = `Cover ${cover.attributes.volume || 'No Volume'}`;
+                        img.style.width = '200px'; // Optional: Set image size
+                        img.style.margin = '10px'; // Optional: Add margin for spacing
+                        imageContainer.appendChild(img);
+                    });
+                } else {
+                    alert('No covers found!');
+                }
+            } catch (error) {
+                console.error('Error fetching manga covers:', error);
+                alert('Failed to fetch covers');
+            }
+        }
+    </script>
+</body>
+</html>
+

@@ -29,7 +29,7 @@ body {
   /* align-items: center; */
   /* justify-content: space-between; */
 
-  padding-left: 10%;
+  padding-left: 5%;
   overflow: hidden;
 }
 
@@ -149,6 +149,6 @@ a:hover {
 #menu {
   display: flex;
   flex-wrap: wrap; /* Wrap elements onto multiple lines */
-  justify-content: left; /* Horizontally center the elements */
+  justify-content: center; /* Horizontally center the elements */
   width:600px;
 }
