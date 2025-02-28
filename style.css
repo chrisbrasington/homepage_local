@@ -33,13 +33,30 @@ body {
   overflow: hidden;
 }
 
-img {
-  height: 660px;
-  width: 440px;
-  border-radius: 12px;
-  border: 1px solid rgba(30, 35, 38, 1.0);
-  box-shadow: 0 4px 8px 0 rgba(30, 35, 38, 0.2), 0 6px 20px 0 rgba(30, 35, 38, 0.19);
-  margin:10%; 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align content to the top */
+  padding: 0 5%; /* 5% padding on both sides */
+  gap: 2%;
+}
+
+.image {
+  flex: 0 0 20%; /* Ensures it stays at 20% width */
+  max-width: 20%; /* Prevents it from growing beyond 20% */
+  height: auto; /* Keeps the aspect ratio */
+}
+
+.image img {
+  max-width: 280%;
+  margin-left:-150%;
+  /* max-height: 70vh;  */
+  /* object-fit: contain; */
+}
+
+
+.content {
+  flex: 0 0 70%; /* Content takes 70% of the width */
 }
 
 nav {
